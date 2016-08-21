@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv = "Content-Type"  content ="text/html; charset = utf-8">
+	<script type="text/javascript" src="js/jquery.js"></script>
+<title>万科-新闻滚动条</title>
+<style>
+*{margin:0;padding:0;text-decoration:none;color:#333;font-size:14px;font-family:"微软雅黑";}
+	#news-scroll{
+		width:1130px;
+		height:50px;
+		margin:0 auto;
+        background:url(images/icon_news.png) 0 14px no-repeat;
+        margin-top:100px;
+       overflow:hidden;
+	}
+
+	.item{
+		height:50px;
+		line-height:50px;
+		margin-left:50px;
+		list-style:none;
+	}
+	.item a{
+		color:#2e2e57;
+		font-weight:bold;
+	}
+
+	.item a:hover{
+		color:red;
+	}
+
+	.item span{
+		color:#6c6c6c;
+		padding-left:30px;
+		font-weight:normal;
+	}
+	.item .news-more{
+		border:1px solid #d1d1d1;
+		border-radius:25px;
+		background:#dfe0e4;
+		padding:8px 15px;
+		margin-left:20px;
+	}
+
+	.item .news-more:hover{
+		background:#f63b2e;
+		color:#fff;
+	}
+
+
+
+</style>
+
+
+<script> 
+
+$(document).ready(function(){
+	var timer = null;
+
+	timer = setInterval(function(){
+		$('ul').animate({
+			marginTop:"-50px"  //每0.5秒钟，ul向上移动50px
+		},500,function(){     //移动50px之后发生此函数
+			$(this).css({marginTop:'0px'}).find('li:first').appendTo(this);
+		})       //将ul的marginTop值设置为0px,并搜索第一个<li>元素，将这个元素添加到ul元素后面
+
+	},3000);
+
+
+
+
+})
+
+  
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<div id="news-scroll">
+<ul>
+	<li class="item">
+		<a href="#">深圳地铁集团与万科达成战略合作<span>2016.03.13</span></a>
+		<a href="#" class="news-more">更多新闻</a>
+	</li>
+		<li class="item">
+		<a href="#">12月23日，王石在瑞士信贷与投资者交流<span>2015.12.23</span></a>
+		<a href="#" class="news-more">更多新闻</a>
+	</li>
+		<li class="item">
+		<a href="#">关于欢迎安邦保险集团成为万科重要股东的声明<span>2015.12.23</span></a>
+		<a href="#" class="news-more">更多新闻</a>
+	</li>
+</ul>
+</div>
+</body>
+</html>
